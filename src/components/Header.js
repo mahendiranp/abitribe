@@ -1,11 +1,30 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState, Component } from 'react';
 import 'boxicons';
 import Logo from "./../images//pp.jpeg"
-const Header = props => {
+import { Link } from "react-scroll";
+import Footer from "./Footer"
+export default class Header extends Component {
+   
+
+    scrollLink = (page, pagename, icon) => {
     return (
-        <Fragment>
-        <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
-        <header id="header">
+      <Link
+        activeClass="active" // class applied when element is reached
+        to={page} // which page to scroll to (the first parameter)
+        spy={true} // make Link selected when scroll is at its targets position
+        smooth={true} // define scrolling behavior
+        duration={500} //control scrolling speed 1000 = 1s
+        onSetActive={this.handleSetActive}
+      >
+        {/*the page the link (the second parameter)*/}
+        <box-icon name={icon} type='solid' color="#fff"></box-icon><strong> {pagename} </strong>
+      </Link>
+    );
+  };
+
+  render() {
+  const NavBar = () => 
+<header id="header" >
     <div className="d-flex flex-column">
 
       <div className="profile">
@@ -24,19 +43,24 @@ const Header = props => {
 
       <nav className="nav-menu">
         <ul>
-          <li className="active"><a href="#front"><i className="bx bxs-component" ></i><span>Home</span></a></li>
-          <li className=""><a href="#intro"><i className="bx bxs-info-circle" ></i><span><strong>  ABOUT</strong></span></a></li>
-          <li className=""><a href="#testimonials"><i className="bx bxs-yin-yang" ></i><strong>  THE SELECTIVES</strong></a></li>
-          <li className=""><a href="#screening"><i className="bx bx-group" ></i> <strong>  GALLERY</strong></a></li>
-          <li className=""><a href="#psychology"><i className="bx bx-id-card" ></i><strong> TALK BUSINESS WITH US </strong></a></li>
-          <li className=""><a href="#contact"><i className="bx bxs-message-alt-dots" ></i><strong> BE A PART OF ABITRIBE </strong> </a></li>
+          <li>{this.scrollLink("intro", "Home",  "component")}</li>
+          <li>{this.scrollLink("about", "About", "info-circle")}</li>
+          <li>{this.scrollLink("gallery", "GALLERY", "yin-yang")}</li>
+          <li>{this.scrollLink("psychology", "TALK BUSINESS WITH US ", "group")}</li>
+          <li>{this.scrollLink("contact", "BE A PART OF ABITRIBE ", "id-card")}</li>
 
         </ul>
       </nav>
       <button type="button" className="mobile-nav-toggle d-xl-none"><i className="icofont-navigation-menu"></i></button>
     </div>
-  </header></Fragment>
-    );
-};
+    <Footer />
+  </header>;
 
-export default Header;
+
+    return (
+        <Fragment>
+         <NavBar  />
+        </Fragment>
+    );
+}
+}

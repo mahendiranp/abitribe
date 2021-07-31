@@ -8,9 +8,11 @@ import Image4 from "../images/img4.jpeg"
 
 const Gallery = () => {
     return (
-        <div id="gallery" class="container">
-            <div class="section-title aos-init" data-aos="fade-left">
+        <div id="gallery" class="section-bg">
+        
+            <div class="section-title aos-init" data-aos="fade-center">
                <h2>Gallery</h2>
+               <div className="container">
                <div class="row mt-4">
                   <div class="item col-sm-6 col-md-4 mb-3">
                      <a href={Image1} class="fancybox" data-fancybox="gallery1">
@@ -43,6 +45,7 @@ const Gallery = () => {
                      </a>
                   </div>
                </div>
+            </div>
             </div>
          </div>
     );

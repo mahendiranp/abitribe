@@ -1,31 +1,66 @@
-import React, {Fragment, useState, Component } from 'react';
+import React, {Fragment, Component } from 'react';
+import { useMediaQuery } from 'react-responsive'
+
 import 'boxicons';
 import Logo from "./../images//pp.jpeg"
 import { Link } from "react-scroll";
 import Footer from "./Footer"
-export default class Header extends Component {
-   
 
+const Desktop = ({ children }) => {
+  const isDesktop = useMediaQuery({ minWidth: 992 })
+  return isDesktop ? children : null
+}
+const Tablet = ({ children }) => {
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+  return isTablet ? children : null
+}
+const Mobile = ({ children }) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  return isMobile ? children : null
+}
+const Default = ({ children }) => {
+  const isNotMobile = useMediaQuery({ maxWidth: 990 })
+  return isNotMobile ? children : null
+}
+
+ const handleMediaQueryChange = (matches) => {
+    console.log(matches);
+  }
+
+export default class Header extends Component {
+   constructor(props){
+     super(props);
+     this.state = {
+       activeMobileView: false
+     }
+   }
     scrollLink = (page, pagename, icon) => {
     return (
       <Link
-        activeClass="active" // class applied when element is reached
-        to={page} // which page to scroll to (the first parameter)
-        spy={true} // make Link selected when scroll is at its targets position
-        smooth={true} // define scrolling behavior
-        duration={500} //control scrolling speed 1000 = 1s
+        activeClass="active"
+        to={page} 
+        spy={true}
+        smooth={true}
+        duration={500}
         onSetActive={this.handleSetActive}
       >
-        {/*the page the link (the second parameter)*/}
         <box-icon name={icon} type='solid' color="#fff"></box-icon><strong> {pagename} </strong>
       </Link>
     );
   };
 
+  handleMenu = (e) => {
+    e.preventDefault();
+    this.setState({
+      activeMobileView: !this.state.activeMobileView
+    })
+  }
+
   render() {
   const NavBar = () => 
-<header id="header" >
-    <div className="d-flex flex-column">
+<header id="header" className={`navpanel ${this.state.activeMobileView ? 'mobile-nav-active' : null}`} >
+  
+    <div className="d-flex flex-column footer-pad-bottom">
 
       <div className="profile">
         <img src={Logo} alt="" className="img-fluid rounded-circle" />
@@ -43,11 +78,12 @@ export default class Header extends Component {
 
       <nav className="nav-menu">
         <ul>
-          <li>{this.scrollLink("intro", "Home",  "component")}</li>
-          <li>{this.scrollLink("about", "About", "info-circle")}</li>
-          <li>{this.scrollLink("gallery", "GALLERY", "yin-yang")}</li>
-          <li>{this.scrollLink("psychology", "TALK BUSINESS WITH US ", "group")}</li>
-          <li>{this.scrollLink("contact", "BE A PART OF ABITRIBE ", "id-card")}</li>
+          <li>{this.scrollLink("intro", "HOME",  "component")}</li>
+          <li>{this.scrollLink("about", "ABOUT", "info-circle")}</li>
+          <li>{this.scrollLink("testimonials", "THE SELECTIVES", "yin-yang")}</li>
+          <li>{this.scrollLink("gallery", "GALLERY", "group")}</li>
+          <li>{this.scrollLink("psychology", "TALK BUSINESS WITH US", "id-card")}</li>
+          <li>{this.scrollLink("contact", "BE A PART OF ABITRIBE", "message-dots")}</li>
 
         </ul>
       </nav>
@@ -59,6 +95,9 @@ export default class Header extends Component {
 
     return (
         <Fragment>
+         {Default ? <button onClick={this.handleMenu} type="button" class="mobile-nav-toggle d-xl-none">
+         { !this.state.activeMobileView ? <box-icon name='menu' color="#149ddd" ></box-icon> : <box-icon name='x' color="#149ddd"></box-icon> }
+         </button> : ""}
          <NavBar  />
         </Fragment>
     );

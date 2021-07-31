@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Contact = props => {
     return (
-        <section id="contact" class="contact">
+        <section id="contact" class="contact section-bg ">
             <div class="container">
                <div class="section-title">
                   <h2>DISCUSSION FORUM</h2>

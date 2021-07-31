@@ -26,11 +26,7 @@ const TypedComponent = props => {
   }, [])
 
   return (
-    <div className="wrap">
-      <div className="type-wrap">
         <span style={{ whiteSpace: 'pre' }} ref={el} />
-      </div>
-    </div>
   );
 };
 

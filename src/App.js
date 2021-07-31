@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import 'boxicons';
@@ -15,6 +14,7 @@ import Gallery from "./views/Gallery"
 import Psychology from "./views/Psychology"
 import Header from "./components/Header"
 import Contact from "./views/Contact"
+import Footer from "./components/Footer"
 import "@fancyapps/ui/dist/fancybox.css";
 function App() {
   useEffect(() => {
@@ -27,11 +27,14 @@ function App() {
       <Header/>
       <div id="main">
         <Home/>
-        <About/>
-        <Selectives />
-        <Gallery />
-        <Psychology />
-        <Contact />
+        <div className="container">
+          <About/>
+          <Selectives />
+          <Gallery />
+          <Psychology />
+          <Contact />
+        </div>
+        <Footer />
       </div>
     </div>
   );

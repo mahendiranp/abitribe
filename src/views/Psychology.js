@@ -1,8 +1,10 @@
 import React from 'react';
+import InstagramEmbed from 'react-instagram-embed';
+
 
 const Psychology = () => {
     return (
-        <section id="psychology" class="psychology">
+        <section id="psychology" class="psychology section-bg">
             <div class="container">
                 <div class="section-title aos-init" data-aos="fade-up">
                     <h2>PSYCHOLOGICAL TESTING</h2>
@@ -44,6 +46,30 @@ const Psychology = () => {
                     </div>
                 </div>
             </div>
+            <section id="interview" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-in-right">
+          <h2>Antique Boutique</h2>
+          <p>Click to view our Instagram handle. Subscribe to get notified about New Arrivals. </p>
+          <centre>
+            <InstagramEmbed
+            url='https://www.instagram.com/p/B_XSAKygH66/'
+            clientAccessToken='684477648739411'
+            maxWidth={320}
+            hideCaption={false}
+            containerTagName='div'
+            protocol=''
+            injectScript
+            onLoading={() => {}}
+            onSuccess={() => {}}
+            onAfterRender={() => {}}
+            onFailure={() => {}}
+            />
+          </centre>
+          </div>
+          </div>
+          </section>
         </section>
     );
 };

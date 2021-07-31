@@ -1,7 +1,7 @@
 import React from 'react';
 const About = props => {
 return (
-<section id="about" class="intro" data-aos="fade-down-left">
+<section id="about" class="intro">
    <div class="container">
       <div class="section-title aos-init aos-animate" data-aos="fade-center">
          <h2>INTRODUCTION</h2>

@@ -60,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   width: 300px;
   transition: all ease-in-out 0.5s;
-  z-index: 9997;
+  z-index: 1000;
   transition: all 0.5s;
   padding: 0 15px;
   background: #040b14;
@@ -284,6 +284,7 @@ h1, h2, h3, h4, h5, h6 {
   #front h1 {
     font-size: 28px;
     line-height: 36px;
+    text-align: center;
   }
   #front h2 {
     font-size: 18px;
@@ -1043,7 +1044,7 @@ section {
   left: 0;
   bottom: 0;
   width: 300px;
-  z-index: 9999;
+  z-index: 1000;
   background: #040b14;
 }
 
@@ -1116,4 +1117,19 @@ font-size: 16px;
 
 .icon svg{
   fill: #fff;
+}
+
+.item {
+  height: 180px;
+}
+
+.item img{
+  height: 100%;
+  width: 100%;
+  object-fit:cover;
+}
+
+.error{
+  color: #ed3c0d;
+  padding: 10px 0px;
 }

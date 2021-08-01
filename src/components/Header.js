@@ -81,7 +81,6 @@ export default class Header extends Component {
           <li>{this.scrollLink("about", "ABOUT", <Iconinfo/>)}</li>
           <li>{this.scrollLink("testimonials", "THE SELECTIVES", <Iconyinyang/>)}</li>
           <li>{this.scrollLink("gallery", "GALLERY", <Icongroup/>)}</li>
-          <li>{this.scrollLink("psychology", "TALK BUSINESS WITH US", <Iconidcard/>)}</li>
           <li>{this.scrollLink("contact", "BE A PART OF ABITRIBE", <Iconmessage/>)}</li>
 
         </ul>

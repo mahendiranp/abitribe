@@ -82,6 +82,7 @@ h1, h2, h3, h4, h5, h6 {
   -moz-text-align-last: center;
   text-align-last: center;
   font-family: "Sans-serif", sans-serif;
+  text-align: center;
 }
 .navpanel .profile h4 {
   font-size: 15px;
@@ -91,6 +92,7 @@ h1, h2, h3, h4, h5, h6 {
   -moz-text-align-last: center;
   text-align-last: center;
   font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 .navpanel .profile h1 a, .navpanel .profile h1 a:hover {
   color: #fff;
@@ -1110,4 +1112,8 @@ section {
 #front p{
 font-size: 16px;
 }
+}
+
+.icon svg{
+  fill: #fff;
 }

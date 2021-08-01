@@ -10,7 +10,7 @@ const Contact = props => {
                   <p>In case of any query feel free to reach us at any of our social media handles, you can find links to those on the left. A discussion forum for all defence aspirants is under development where you can discuss over different topics related to selection in the forces with other aspirants and get your answers. </p>
                </div>
                <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                  <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                  <form action="sendmail.php" method="post" role="form" class="php-email-form">
                      <div class="form-row">
                         <div class="form-group col-md-6">
                            <label for="name">Your Name</label>
